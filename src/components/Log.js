@@ -14,20 +14,19 @@ class Log extends Component {
 
     const messageComponents = messages.map((message) => {
       return (
-        <li key={message.timeStamp}>
-          <Message
-            sender={message.sender}
-            body={message.body}
-            timeStamp={message.timeStamp}
-          />
-        </li>
+        <Message
+          key={message.timeStamp}
+          sender={message.sender}
+          body={message.body}
+          timeStamp={message.timeStamp}
+        />
       );
     });
 
     return(
-      <ul>
+      <section className='chat-log'>
         {messageComponents}
-      </ul>
+      </section>
     );
   }
 }

@@ -5,8 +5,6 @@ import Log from './components/Log'
 
 class App extends Component {
   render() {
-    console.log(chatMessages);
-
     return (
       <div className="App">
         <header className="App-header">

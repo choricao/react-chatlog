@@ -12,18 +12,27 @@ class Message extends Component {
     isPresent: PropTypes.bool,
   }
 
+  isLocal = () => {
+    if (this.props.sender === "Vladimir") {
+      return 'chat-entry local';
+    }
+    return 'chat-entry remote';
+  }
+
   render() {
     const sender = this.props.sender;
     const body = this.props.body;
     const timeStamp = this.props.timeStamp;
 
     return(
-      <article>
-        <p>{sender}</p>
-        <p>{body}</p>
-        <Timestamp
-          time={timeStamp}
-        />
+      <article className={this.isLocal()}>
+        <p className='entry-name'>{sender}</p>
+        <section className='entry-bubble'>
+          <p className='entry-body'>{body}</p>
+          <Timestamp className='entry-time'
+            time={timeStamp}
+          />
+        </section>
       </article>
     );
   }
